@@ -44,10 +44,10 @@ function App() {
   return (
       <>
         <div className="App">          
-          <Navbar homeNavlink="About" title="React Site" applyMode={mode} toggleMode={toggleMode} />
+          <Navbar homeNavlink="About" title="React Site (Live)" applyMode={mode} toggleMode={toggleMode} />
           
           <Alert alert={alert} />
-          <TextForm heading="Enter the text below:" showAlert={showAlert}></TextForm>
+          <TextForm heading="Enter the text below: (Live)" showAlert={showAlert}></TextForm>
           <About />
         </div>
 

@@ -28,7 +28,7 @@ export default function About() {
     
   return (
     <div className='container' style={myStyle}>
-        <h2>React Dark Mode</h2>
+        <h2>React Dark Mode (Live)</h2>
         <div className="accordion" id="accordionExample">
             <div className="accordion-item">
                 <h2 className="accordion-header">

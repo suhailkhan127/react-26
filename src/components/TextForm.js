@@ -44,7 +44,7 @@ export default function TextForm(props) {
 	}
 
 	// 7 Copy Text
-	const handleCopy = () => {
+	const handleCopy = () => { 
 		navigator.clipboard.writeText(text)
 		alert("Text Copied!")
 	}
@@ -142,18 +142,20 @@ export default function TextForm(props) {
 		<div className='mt-4 container'>
 			<h2>{props.heading}</h2>
 			<h4>{text.split(" ").filter(word => word.trim() !== "").length}: words, {text.length} Characters</h4>
-			<p><b>Preview: </b> {text.length>0?text:"Enter something in Textarea....."}</p>
+			<p><b>Preview: </b> {text.length>0?text:"Nothing to Preview....."}</p>
 			<div className="form-group">
 				<textarea value={text} onChange={handleOnChange} className="form-control" rows="5"></textarea>
 			</div>
 			
-			<button onClick={handleUpperCase} className="btn btn-primary m-1">Uppercase</button>
-			<button onClick={handleLowerCase} className="btn btn-success m-1">Lowercase</button>
-			<button onClick={handleClear} className="btn btn-danger m-1">Clear</button>
+			{/* below line will make disable button when textarea will be blank */}
+			{/* disabled={text.length === 0} */} 
+			<button disabled={text.length === 0} onClick={handleUpperCase} className="btn btn-primary m-1">Uppercase</button>
+			<button disabled={text.length === 0} onClick={handleLowerCase} className="btn btn-success m-1">Lowercase</button>
+			<button onClick={handleClear} className="btn btn-danger m-1">Clear Text</button>
 			<button onClick={handleReverse} className="btn btn-secondary m-1">Reverse</button>
 			<button onClick={handleRemoveSpaces} className="btn btn-warning m-1">Remove Extra Spaces</button>
 			<button onClick={handleCapitalize} className="btn btn-info m-1">Capitalize</button>
-			<button onClick={handleCopy} className="btn btn-dark m-1">Copy</button>
+			<button onClick={handleCopy} className="btn btn-dark m-1">Copy Text</button>
 			<button onClick={handleAddDot} className="btn btn-success m-1">Add Dot</button>
 			<button onClick={handleAddEmoji} className="btn btn-primary m-1">Add Emoji</button>
 			<button onClick={handleRemoveNumbers} className="btn btn-danger m-1">Remove Numbers</button>

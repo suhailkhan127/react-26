@@ -133,6 +133,17 @@ export default function TextForm(props) {
 		)
 	}
 
+	// 21 Voice
+	const handleVoice = () => {
+		if (!text) return;
+		const speech = new SpeechSynthesisUtterance(text);
+		speech.lang = "en-US"; // change language if needed
+		speech.rate = 1; // speed (0.5 slow - 2 fast)
+		speech.pitch = 1; // voice pitch
+		
+		window.speechSynthesis.speak(speech);
+	}
+
 
 	const handleOnChange = (event) => {
 		setText(event.target.value)
@@ -141,7 +152,7 @@ export default function TextForm(props) {
 	return (
 		<div className='mt-4 container'>
 			<h2>{props.heading}</h2>
-			<h4>{text.split(" ").filter(word => word.trim() !== "").length}: words, {text.length} Characters</h4>
+			<h4>{text.split(/\s+/).filter(word => word.trim() !== "").length}: words, {text.length} Characters</h4>
 			<p><b>Preview: </b> {text.length>0?text:"Nothing to Preview....."}</p>
 			<div className="form-group">
 				<textarea value={text} onChange={handleOnChange} className="form-control" rows="5"></textarea>
@@ -161,15 +172,17 @@ export default function TextForm(props) {
 			<button onClick={handleRemoveNumbers} className="btn btn-danger m-1">Remove Numbers</button>
 
 			<button onClick={handleTitleCase} className="btn btn-primary m-1">Title Case</button>
-			<button onClick={handleRemoveSpecial} className="btn btn-danger m-1">Remove Special</button>
-			<button onClick={handleWordCount} className="btn btn-warning m-1">Word Count</button>
+			<button onClick={handleRemoveSpecial} className="btn btn-dark m-1">Remove Special</button>
+			<button onClick={handleWordCount} className="btn btn-outline-dark m-1">Word Count</button>
 			<button onClick={handleCharCount} className="btn btn-warning m-1">Char Count</button>
 			<button onClick={handleBinary} className="btn btn-secondary m-1">To Binary</button>
-			<button onClick={handleRemoveVowels} className="btn btn-dark m-1">Remove Vowels</button>
+			<button onClick={handleRemoveVowels} className="btn btn-danger m-1">Remove Vowels</button>
 			<button onClick={handleLineBreak} className="btn btn-info m-1">Line Break</button>
 			<button onClick={handleRepeat} className="btn btn-success m-1">Repeat</button>
-			<button onClick={handleAlternateCase} className="btn btn-primary m-1">Alternate Case</button>
-
+			<button onClick={handleAlternateCase} className="btn btn-secondary m-1">Alternate Case</button>
+			<button onClick={handleVoice} className="btn btn-outline-dark m-1">
+				<i className="fas fa-volume-down"></i> Voice
+			</button>
 			<br/><br/><br/><br/><br/>
 		</div>
 	)

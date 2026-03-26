@@ -22,22 +22,10 @@ npm run deploy
 always select "gh-pages" branch on GitHub site
 
 
-Watched
-============
-https://www.youtube.com/watch?v=Fi75tq9JikI&list=PLu0W_9lII9agx66oZnT6IyhcMIbUMNMdt&index=17
-
-10:02 Seconds
+26-3-2026
 
 
 
-
-
-
-Issues
-========== 
-in Video 6 
-20:54 = defaultProps not working
-22:26 = isRequired not working
 
 
 

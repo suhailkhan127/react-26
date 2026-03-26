@@ -10,7 +10,7 @@ export default function Navbar(props) {
         <nav className={`navbar navbar-expand-lg navbar-${props.applyMode} bg-${props.applyMode}`}>
           <div className="container-fluid">
             {/* <Link className="navbar-brand" to="/">{props.title}</Link> */}
-            <a className="navbar-brand" href="#">{props.title}</a>
+            <a className="navbar-brand" href="/">{props.title}</a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
             </button>
@@ -18,10 +18,10 @@ export default function Navbar(props) {
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item"> 
                   {/* <Link to="/about" className="nav-link" >{props.homeNavlink}</Link> */}
-                  <a href="#" className="nav-link" >{props.homeNavlink}</a>
+                  <a href="/about" className="nav-link" >{props.homeNavlink} Suhail Tio</a>
                 </li>
                 <li className="nav-item">
-                  <a href="#" className="nav-link" >TextForm</a>
+                  <a href="/textform" className="nav-link" >TextForm</a>
                 </li>
                 <li className="nav-item dropdown">
                   <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -52,7 +52,7 @@ export default function Navbar(props) {
 }
 
 
-Navbar.propTypes  = {
+Navbar.propTypes = {
     title: PropTypes.string.isRequired,
     homeNavlink: PropTypes.string
 }

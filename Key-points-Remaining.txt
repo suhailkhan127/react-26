@@ -4,26 +4,24 @@ npm start
 
 
 
-creating build for upload files
---------------------------------
+creating build for upload files on GitHub Pages
+-----------------------------------------------
 npm run build
 
+npm run deploy
 
-push on GitHub
----------------
+** select "gh-pages" branch on GitHub for checking your build uploaded files
+** Build deploy karne se changes browser me dekhi jasakti hai
+
+
+files push on GitHub
+--------------------------------------------------------------------
 git add .
 git commit -m "Updated code"
 git push
 
-
-upload on GitHub Pages
------------------------
-npm run deploy
-always select "gh-pages" branch on GitHub site
-
-
-26-3-2026
-
+** (pushed files can be seen in "main branch" on Github)
+** but code changes will apply using build & deploy process
 
 
 

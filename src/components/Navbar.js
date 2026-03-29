@@ -18,20 +18,18 @@ export default function Navbar(props) {
               <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                 <li className="nav-item"> 
                   {/* <Link to="/about" className="nav-link" >{props.homeNavlink}</Link> */}
-                  <a href="/about" className="nav-link" >{props.homeNavlink} Suhail Tio</a>
+                  <a href="/" className="nav-link" >{props.homeNavlink}</a>
                 </li>
                 <li className="nav-item">
-                  <a href="/textform" className="nav-link" >TextForm</a>
+                  <a href="/" className="nav-link" >TextForm</a>
                 </li>
                 <li className="nav-item dropdown">
                   <a className="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Dropdown 12
+                    Dropdown
                   </a>
                   <ul className="dropdown-menu">
                     <li><a className="dropdown-item" href="/">Action</a></li>
                     <li><a className="dropdown-item" href="/">Another action</a></li>
-                    <li><hr className="dropdown-divider" /></li>
-                    <li><a className="dropdown-item" href="/">Something else here</a></li>
                   </ul>
                 </li>
               </ul>

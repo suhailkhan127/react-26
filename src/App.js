@@ -4,6 +4,7 @@ import Alert from './components/Alert';
 
 import Navbar from './components/Navbar'; 
 import TextForm from './components/TextForm';
+import TodoList from './todo/TodoList';
 import React, {useState } from 'react';
 
 // import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -49,6 +50,8 @@ function App() {
           <Alert alert={alert} />
           <TextForm heading="Enter the text below:" showAlert={showAlert}></TextForm>
           <About />
+
+          <TodoList />
         </div>
 
 

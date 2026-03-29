@@ -22,13 +22,15 @@ function TodoList() {
         setTodos(todos.filter(todo => todo.id !== id));
     };
 
-    const update = (id, updtedTask, updatedPriority) => {
+    const update = (id, editTask, editPriority, editDate, editStatus) => {
         const editTodos = todos.map(todo => {
             if (todo.id === id) {
                 return { 
                     ...todo, 
-                    task: updtedTask, 
-                    priority: updatedPriority 
+                    task: editTask, 
+                    priority: editPriority, 
+                    date: editDate, 
+                    status: editStatus,
                 };
             }
             return todo;
@@ -65,7 +67,7 @@ function TodoList() {
             <ul className="theader">
                 <li>Task</li>
                 <li>Priority</li>
-                <li>Date</li>
+                <li>Due Date</li>
                 <li>Status</li>
                 <li>Actions</li>
             </ul>

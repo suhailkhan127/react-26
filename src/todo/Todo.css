@@ -51,10 +51,9 @@
 
 .Todo-edit-form {
   display: flex;
-      gap: 10px;
-  flex-wrap: wrap;
+  gap: 10px;
+  flex-wrap: nowrap;
 }
-
 .Todo-edit-form label {
   min-width: 100%;
   margin-bottom: 0.5rem;
@@ -68,6 +67,7 @@
   background: #f7f1f1;
   padding: 0 1.5em;
   font-size: initial;
+  width: 100%;
 }
 
 .Todo-edit-form button {
@@ -88,6 +88,7 @@
 }
 
 .Todo-edit-form input,
+.Todo-edit-form select,
 .Todo-edit-form button {
   font-family: "Quicksand", sans-serif;
   height: 3rem;
@@ -97,7 +98,7 @@
     padding: 4px 8px;
     border-radius: 4px;
     font-size: 12px;
-    margin-left: 10px;
+    margin-left: 50px;
 }
 
 .priority-high {
@@ -115,6 +116,16 @@
     color: white;
 }
 
+.todo-date{
+  margin-left: 60px;
+}
+
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    margin-left: 35px;
+}
 .status-not-started {
     border: 1px solid #b6f1ff;
     color: #b6f1ff;
@@ -129,7 +140,7 @@
     font-weight: bold;
 }
 
-.status-complete {
+.status-completed {
     border: 1px solid #ffcc8a;
     color: #ffcc8a;
     padding: 4px 7px;
@@ -234,4 +245,28 @@
   display: flex;
   justify-content: space-between;
       margin-top: 50px;
+}
+
+@media (max-width: 767px) {
+    .TodoList {
+      padding: 2rem 1rem 3rem;
+    }
+
+    .Todo {
+        flex-wrap: wrap;
+    }
+
+    .NewTodoForm .col {
+        flex: 0 0 1;
+        width: 100%;
+    }
+    .NewTodoForm button,
+    .Todo-edit-form button {
+      margin-left: 0px;
+      width: 100%;
+    }
+
+    .Todo-edit-form {
+        flex-wrap: wrap;
+    }
 }

@@ -5,6 +5,8 @@ function Todo({ todo, remove, update, toggleComplete }) {
     const [isEditing, setIsEditing] = useState(false); // Edit mode on/off
     const [task, setTask] = useState(todo.task);
     const [priority, setPriority] = useState(todo.priority);
+    const [date, setDate] = useState(todo.date);
+    const [status, setStatus] = useState(todo.status);
 
     // remove function hai (parent se aaya)
     const handleDelete = evt => {
@@ -19,7 +21,7 @@ function Todo({ todo, remove, update, toggleComplete }) {
     // Naya task text parent ko bhejta hai && Edit mode close hota hai
     const handleUpdate = evt => {
         evt.preventDefault();
-        update(todo.id, task, priority);
+        update(todo.id, task, priority, date, status);
         toggleEdit();
     };
 
@@ -32,6 +34,8 @@ function Todo({ todo, remove, update, toggleComplete }) {
     
         if (name === "task") setTask(value);
         if (name === "priority") setPriority(value);
+        if (name === "date") setDate(value);
+        if (name === "status") setStatus(value);
     };
 
     // 
@@ -44,23 +48,52 @@ function Todo({ todo, remove, update, toggleComplete }) {
         result = (
             <div className="Todo">
                 <form className="Todo-edit-form" onSubmit={handleUpdate}>
-                    <input 
-                        onChange={handleChange} 
-                        value={task}     // Current task text show ho raha hai
-                        type="text" 
-                        name="task"
-                    />
-                    <select
-                        value={priority} 
-                        onChange={handleChange}
-                        id="priority"
-                        name="priority"
-                    >
-                        <option value="">Select</option>
-                        <option value="high">High</option>
-                        <option value="medium">Medium</option>
-                        <option value="low">Low</option>
-                    </select>
+                    <div className="col">
+                        <input 
+                            onChange={handleChange} 
+                            value={task}     // Current task text show ho raha hai
+                            type="text" 
+                            name="task"
+                        />
+                    </div>
+                    <div className="col">
+                        <select
+                            value={priority} 
+                            onChange={handleChange}
+                            name="priority"
+                        >
+                            <option value="">Select</option>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                    </div>
+
+                    <div className="col">
+
+                        <input
+                            value={date}
+                            onChange={handleChange}
+                            type="text"
+                            id="datepicker"
+                            name="date"
+                            placeholder="Edit Date"
+                        />
+                    </div>
+
+                    <div className="col">
+                        <select
+                            value={status}
+                            onChange={handleChange}     // ← yahi same function
+                            name="status"           
+                        >
+                            <option value="">Select Status</option>
+                            <option value="not-started">Not Started</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="completed">Completed</option>
+                        </select>
+                    </div>
+
                     <button>Save</button>
                 </form>
             </div>
@@ -78,8 +111,8 @@ function Todo({ todo, remove, update, toggleComplete }) {
                 <span className={`priority-badge priority-${todo.priority}`}>
                     {todo.priority}
                 </span>
-                <div>{todo.date}</div>
-                <span className={`priority-badge status-${todo.status}`}>
+                <div className="todo-date">{todo.date}</div>
+                <span className={`status-badge status-${todo.status}`}>
                     {todo.status}
                 </span>
                 <div className="Todo-buttons">

@@ -77,6 +77,18 @@ function NewTodoForm({ createTodo }) {
                     placeholder="New Todo"
                 />
             </div>
+            <div  className="col">
+                <select
+                    value={userInput.priority}
+                    onChange={handleChange}     // ← yahi same function
+                    name="priority"           
+                >
+                    <option value="">Select Priority</option>
+                    <option value="high">High</option>
+                    <option value="medium">Medium</option>
+                    <option value="low">Low</option>
+                </select>
+            </div>
             <div className="col" >
                 <input
                     value={userInput.date}
@@ -85,7 +97,6 @@ function NewTodoForm({ createTodo }) {
                     id="datepicker"
                     name="date"
                     placeholder="Date"
-                    className="form-control"
                 />
             </div>
             <div  className="col">
@@ -100,18 +111,7 @@ function NewTodoForm({ createTodo }) {
                     <option value="completed">Completed</option>
                 </select>
             </div>
-            <div  className="col">
-                <select
-                    value={userInput.priority}
-                    onChange={handleChange}     // ← yahi same function
-                    name="priority"           
-                >
-                    <option value="">Select Priority</option>
-                    <option value="high">High</option>
-                    <option value="medium">Medium</option>
-                    <option value="low">Low</option>
-                </select>
-            </div>
+            
             <button>Add Todo</button>
         </form>
     );
